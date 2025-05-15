@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGmcG</title>
+    <link rel="shortcut icon" href="2.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <nav class="navbar">
+            <div class="icon">
+                <h2 class="logo">SGmcG</h2>
+                <audio id="background-audio" loop>
+                    <source src="Audio.mp3" type="audio/mp3">
+                </audio>
+                <button id="audio-toggle" onclick="toggleAudio()">⏸</button>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Rules.html">Rules</a></li> 
+                    <li><a href="OContent.html">Content</a></li>
+                    <li><a href="OurTeam.html">OurTeam</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="content">
+            <div class="logo-container">
+                <img src="2.png" alt="Logo">
+            </div>
+            <div class="text">
+                <h1>
+                    Hello Selamat Datang Di SGmcG<br>
+                    <span>Dimana Keunikkan Dan</span><br>
+                    Kreativitas
+                </h1>
+                <button class="cn"><a href="#">MENJELAJAH</a></button>
+            </div>
+
+            <div class="about-section">
+                <h3>ABOUT</h3>
+                <p>
+                    Selamat datang di <b>SGmcG</b>! Dimana semua orang disini dapat melakukan chat ataupun bermain games bersama dengan
+                    temen-temen sekalian dan bisa melakukan voice dan berkomunikasi dengan baik.😍😍
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+           const saudio = document.getElementById('background-audio');
+   const toggleButton = document.getElementById('audio-toggle');
+
+   // Memeriksa status audio saat halaman dimuat
+   window.onload = function() {
+       const audioStatus = localStorage.getItem('audioStatus');
+       if (audioStatus === 'playing') {
+           saudio.play(); // Ganti audio dengan saudio
+           toggleButton.textContent = '⏸'; // Ubah tombol menjadi ikon jeda
+       } else {
+           saudio.pause(); // Ganti audio dengan saudio
+           toggleButton.textContent = '▶'; // Ubah tombol menjadi ikon putar
+       }
+   };
+
+   function toggleAudio() {
+       if (saudio.paused) { // Ganti audio dengan saudio
+           saudio.play(); // Ganti audio dengan saudio
+           localStorage.setItem('audioStatus', 'playing'); // Simpan status audio
+           toggleButton.textContent = '⏸'; // Ubah tombol menjadi ikon jeda
+       } else {
+           saudio.pause(); // Ganti audio dengan saudio
+           localStorage.setItem('audioStatus', 'paused'); // Simpan status audio
+           toggleButton.textContent = '▶'; // Ubah tombol menjadi ikon putar
+       }
+   }
+    </script>
+</body>
+</html>
